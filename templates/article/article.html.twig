@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ article.title }}
+{% endblock %}
+
+{% block content %}
+	<hr>
+	<div class="nav-scroller py-1 mb-2">
+		<nav class="nav d-flex justify-content-between">
+			{% for category in categories %}
+				<a class="p-2 link-black" href="{{ path('category', {'id': category.id}) }}">{{category}}</a>
+
+			{% endfor %}
+		</nav>
+	</div>
+	<div class="container">
+		<h1 class="title mt-4">{{ article.title }}</h1>
+		<div class="img-fluid">
+			<img width="70%" height="225" src="/assets/blog/images/articles/{{ article.image }}" alt="{{ article.image }}">
+		</div>
+		<div class="content">
+			<p class="date">Ecrit le
+				{{ article.createdAt | date("d/m/Y") }}
+				à
+				{{ article.createdAt | date("H:i") }}
+				par
+				<span class="author">{{ article.author }}</span>
+			</p>
+			<h3 class="title">{{ article.title }}</h3>
+			<p class="content text-justify">{{ article.content | raw }}</p>
+		</div>
+	</div>
+
+{% endblock %}

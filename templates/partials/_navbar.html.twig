@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{ path('home') }}">
+			<img width="auto" height="120px" src="{{ asset('assets/blog/images/articles/model_agency_1201_logo_blanc.png') }}" alt=""></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link active" href="{{ path('home') }}">Accueil
+						<span class="visually-hidden">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+			</ul>
+
+			<div class="authentification">
+				{% if app.user %}
+					<a href="{{path('logout') }}" class="btn btn-success">Deconnexion</a>
+				{% else %}
+					<a href="{{path('login') }}" class="btn btn-success">Connexion</a>
+					|
+					<a href="{{ path('register') }}" class="btn btn-success">Inscription</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</nav>
